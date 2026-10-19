@@ -467,10 +467,14 @@ function buildTools(section) {
 /**
  * Returns the current page's own title for a breadcrumb: the first h1, else the
  * document title before " | ". A leading parent label ("Parent – Page") is
- * dropped and all-caps titles are lowered so the crumb's capitalization applies.
+ * dropped and all-caps titles are title-cased, matching the source breadcrumbs.
  * @param {string} parentLabel label of the parent crumb
  * @returns {string}
  */
+function toTitleCase(text) {
+  return text.toLowerCase().replace(/(^|[\s-])(\p{L})/gu, (m, sep, ch) => `${sep}${ch.toUpperCase()}`);
+}
+
 function getPageTitle(parentLabel) {
   const h1 = document.querySelector('main h1') || document.querySelector('h1');
   let title = (h1 ? h1.textContent : document.title.split(' | ')[0]).replace(/\s+/g, ' ').trim();
@@ -480,7 +484,7 @@ function getPageTitle(parentLabel) {
     if (stripped) title = stripped;
   }
   if (title && title === title.toUpperCase() && title !== title.toLowerCase()) {
-    title = title.toLowerCase();
+    title = toTitleCase(title);
   }
   return title;
 }
