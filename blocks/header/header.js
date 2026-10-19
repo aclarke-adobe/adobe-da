@@ -467,7 +467,7 @@ function buildTools(section) {
 /**
  * Returns the current page's own title for a breadcrumb: the first h1, else the
  * document title before " | ". A leading parent label ("Parent – Page") is
- * dropped and all-caps titles are title-cased, matching the source breadcrumbs.
+ * dropped and the result is title-cased, matching the source breadcrumbs.
  * @param {string} parentLabel label of the parent crumb
  * @returns {string}
  */
@@ -483,10 +483,7 @@ function getPageTitle(parentLabel) {
     const stripped = title.replace(new RegExp(`^${escaped}\\s*[–—:|-]\\s*`, 'i'), '').trim();
     if (stripped) title = stripped;
   }
-  if (title && title === title.toUpperCase() && title !== title.toLowerCase()) {
-    title = toTitleCase(title);
-  }
-  return title;
+  return title ? toTitleCase(title) : title;
 }
 
 /**
