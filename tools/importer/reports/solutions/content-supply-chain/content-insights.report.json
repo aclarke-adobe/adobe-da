@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain/content-insights.html",
+  "path": "solutions/content-supply-chain/content-insights",
+  "timestamp": "2026-10-19T10:20:32.962Z",
+  "title": "Content Reporting & Insights | Adobe Content Supply Chain",
+  "template": "content-supply-chain",
+  "blocks": [
+    "hero-split",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-product-icon",
+    "accordion-faq",
+    "columns-promo"
+  ]
+}

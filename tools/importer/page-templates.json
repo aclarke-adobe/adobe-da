@@ -1,0 +1,595 @@
+{
+  "templates": [
+    {
+      "name": "content-supply-chain",
+      "urls": [
+        "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+        "https://business.adobe.com/solutions/content-supply-chain/content-insights.html",
+        "https://business.adobe.com/solutions/content-supply-chain/marketer-led-creation.html",
+        "https://business.adobe.com/solutions/content-supply-chain/rebuild-creative-foundations.html",
+        "https://business.adobe.com/solutions/content-supply-chain/scaled-content-production.html",
+        "https://business.adobe.com/solutions/content-supply-chain/workflow-planning.html"
+      ],
+      "representativeUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+      "description": "Content Supply Chain solution sub-pages: split hero, alternating media feature rows, powered-by product icons, customer quote, resource cards, FAQ accordion, and dark contact promo.",
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [
+            "div.hero-marquee"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "div.media"
+          ]
+        },
+        {
+          "name": "cards-product-icon",
+          "instances": [
+            "div.section.two-up",
+            "div.section.three-up",
+            "div.action-scroller"
+          ]
+        },
+        {
+          "name": "quote-logo",
+          "instances": [
+            "div.icon-block.full-width"
+          ]
+        },
+        {
+          "name": "cards-resource",
+          "instances": [
+            "#caas",
+            "div.caas-preview"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "div.accordion-container"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            "div.aside.dark"
+          ]
+        }
+      ],
+      "urlPattern": "/solutions/content-supply-chain/*",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": [
+            "main > div.section:has(> div.hero-marquee)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Intro heading",
+          "selector": [
+            "main > div.section:has(> div.text.center)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2",
+            "div.text p"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Feature row 1",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Feature row 2",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Feature row 3",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Feature row 4",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Feature row 5",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Feature row 6",
+          "selector": [
+            "main > div.section:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Card grid heading",
+          "selector": [
+            "main > div.section:has(> div.text.center):has(+ div.section.two-up)",
+            "main > div.section:has(> div.text.center):has(+ div.section.three-up)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2",
+            "div.text p"
+          ]
+        },
+        {
+          "id": "section-10",
+          "name": "Card grid",
+          "selector": [
+            "main > div.section.two-up",
+            "main > div.section.three-up"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-product-icon"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "Products heading",
+          "selector": [
+            "main > div.section:has(> div.text.center):has(+ div.section > div.action-scroller)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2",
+            "div.text p"
+          ]
+        },
+        {
+          "id": "section-12",
+          "name": "Products scroller",
+          "selector": [
+            "main > div.section:has(> div.action-scroller)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-product-icon"
+          ],
+          "defaultContent": [
+            "div.action-scroller a"
+          ]
+        },
+        {
+          "id": "section-13",
+          "name": "Customer quote",
+          "selector": [
+            "main > div.section:has(div.icon-block.full-width)"
+          ],
+          "style": null,
+          "blocks": [
+            "quote-logo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-14",
+          "name": "Learn more resources",
+          "selector": [
+            "main > div.section:has(#caas)",
+            "main > div.section:has(div.caas-preview)"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-resource"
+          ],
+          "defaultContent": [
+            "div.text h2"
+          ]
+        },
+        {
+          "id": "section-15",
+          "name": "FAQ heading",
+          "selector": [
+            "main > div.section:has(+ div.section > div.accordion-container)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2"
+          ]
+        },
+        {
+          "id": "section-16",
+          "name": "FAQ accordion",
+          "selector": [
+            "main > div.section:has(> div.accordion-container)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-17",
+          "name": "Contact CTA promo",
+          "selector": [
+            "main > div.section:has(div.aside.dark)"
+          ],
+          "style": "dark",
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "solutions",
+      "urls": [
+        "https://business.adobe.com/solutions/content-supply-chain.html"
+      ],
+      "representativeUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [
+            "div.hero-marquee"
+          ]
+        },
+        {
+          "name": "cards-icon-tile",
+          "instances": [
+            "div.section.three-up:has(> div.editorial-card)"
+          ]
+        },
+        {
+          "name": "cards-horizontal",
+          "instances": [
+            "div.section.two-up:has(> div.card-horizontal)"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "div.media.medium-compact"
+          ]
+        },
+        {
+          "name": "columns-split-card",
+          "instances": [
+            "div.brick.split"
+          ]
+        },
+        {
+          "name": "cards-report",
+          "instances": [
+            "div.section.two-up.grid-width-10:has(> div.media)"
+          ]
+        },
+        {
+          "name": "carousel-cards",
+          "instances": [
+            "#caas",
+            "div.caas-preview"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "div.accordion-container"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            "div.aside.dark"
+          ]
+        }
+      ],
+      "urlPattern": "/solutions/*",
+      "sectionMetadata": {
+        "section-6": {
+          "anchor": "connect-strategy"
+        },
+        "section-7": {
+          "anchor": "enhance-creative"
+        },
+        "section-8": {
+          "anchor": "create-quality"
+        },
+        "section-9": {
+          "anchor": "unlock-brand"
+        },
+        "section-10": {
+          "anchor": "quickly-find-content"
+        },
+        "section-11": {
+          "anchor": "get-insights"
+        },
+        "section-12": {
+          "anchor": "power-your-content-supply-chain-with-an-integrated-solution"
+        }
+      },
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": [
+            "main > div.section:has(> div.hero-marquee)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Intro",
+          "selector": [
+            "main > div.section:has(> div.text.center):has(+ div.section.three-up)",
+            "main > div.section:has(> div.text.center)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2",
+            "div.text p"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Value props",
+          "selector": [
+            "main > div.section.three-up:has(> div.editorial-card)",
+            "main > div.section.three-up"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-tile"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Challenges heading",
+          "selector": [
+            "main > div.section:has(> div.text.center):has(+ div.section.two-up > div.card-horizontal)",
+            "main > div.section:has(> div.text.center):has(+ div.section.two-up)"
+          ],
+          "style": "light-grey, centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Anchor tiles",
+          "selector": [
+            "main > div.section.two-up:has(> div.card-horizontal)"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "cards-horizontal"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Feature: Connect strategy (#connect-strategy)",
+          "selector": [
+            "main > div.section#connect-strategy",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Feature: Enhance creative (#enhance-creative)",
+          "selector": [
+            "main > div.section#enhance-creative",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Feature: Scale content production (#create-quality)",
+          "selector": [
+            "main > div.section#create-quality",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Feature: Unlock content creation (#unlock-brand)",
+          "selector": [
+            "main > div.section#unlock-brand",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-10",
+          "name": "Feature: Asset discovery (#quickly-find-content)",
+          "selector": [
+            "main > div.section#quickly-find-content",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "Feature: Content insights (#get-insights)",
+          "selector": [
+            "main > div.section#get-insights",
+            "main > div.section:has(> div.media.medium-compact)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-12",
+          "name": "GenStudio promo (#power-your-content-supply-chain-with-an-integrated-solution)",
+          "selector": [
+            "main > div.section:has(> div.brick.split)",
+            "main > div.section.masonry"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-13",
+          "name": "Report promos",
+          "selector": [
+            "main > div.section.two-up.grid-width-10",
+            "main > div.section.two-up:has(> div.media)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-report"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-14",
+          "name": "Customer stories",
+          "selector": [
+            "main > div.section:has(#caas)",
+            "main > div.section:has(div.caas-preview)"
+          ],
+          "style": "centered",
+          "blocks": [
+            "carousel-cards"
+          ],
+          "defaultContent": [
+            "div.text h2"
+          ]
+        },
+        {
+          "id": "section-15",
+          "name": "FAQ heading",
+          "selector": [
+            "main > div.section:has(> div.text.center):has(+ div.section > div.accordion-container)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.text h2"
+          ]
+        },
+        {
+          "id": "section-16",
+          "name": "FAQ",
+          "selector": [
+            "main > div.section:has(> div.accordion-container)"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-17",
+          "name": "Contact promo",
+          "selector": [
+            "main > div.section:has(div.aside.dark)",
+            "main > div:has(div.aside.dark)"
+          ],
+          "style": "dark",
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

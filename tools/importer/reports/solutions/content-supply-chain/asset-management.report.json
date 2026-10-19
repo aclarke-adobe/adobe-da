@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "path": "solutions/content-supply-chain/asset-management",
+  "timestamp": "2026-10-19T10:20:21.912Z",
+  "title": "Asset Management for Enterprise | Adobe Content Supply Chain",
+  "template": "content-supply-chain",
+  "blocks": [
+    "hero-split",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-product-icon",
+    "quote-logo",
+    "cards-resource",
+    "cards-resource",
+    "accordion-faq",
+    "columns-promo"
+  ]
+}

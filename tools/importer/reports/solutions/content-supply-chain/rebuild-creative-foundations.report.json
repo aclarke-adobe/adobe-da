@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain/rebuild-creative-foundations.html",
+  "path": "solutions/content-supply-chain/rebuild-creative-foundations",
+  "timestamp": "2026-10-19T10:20:57.243Z",
+  "title": "Rebuild Creative Foundations | Adobe Content Supply Chain",
+  "template": "content-supply-chain",
+  "blocks": [
+    "hero-split",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-product-icon",
+    "cards-resource",
+    "cards-resource",
+    "cards-resource",
+    "cards-resource",
+    "accordion-faq",
+    "columns-promo"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain/workflow-planning.html",
+  "path": "solutions/content-supply-chain/workflow-planning",
+  "timestamp": "2026-10-19T10:21:18.993Z",
+  "title": "Content Supply Chain Workflow, Planning, & Metadata | Adobe for Business",
+  "template": "content-supply-chain",
+  "blocks": [
+    "hero-split",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-product-icon",
+    "cards-resource",
+    "cards-resource",
+    "columns-promo"
+  ]
+}

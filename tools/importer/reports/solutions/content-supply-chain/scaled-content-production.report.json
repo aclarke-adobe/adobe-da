@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain/scaled-content-production.html",
+  "path": "solutions/content-supply-chain/scaled-content-production",
+  "timestamp": "2026-10-19T10:21:07.174Z",
+  "title": "Scaled Content Production | Adobe Content Supply Chain",
+  "template": "content-supply-chain",
+  "blocks": [
+    "hero-split",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "cards-product-icon",
+    "cards-product-icon",
+    "cards-resource",
+    "cards-resource",
+    "columns-promo"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "url": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "path": "solutions/content-supply-chain",
+  "timestamp": "2026-10-19T10:19:27.265Z",
+  "title": "Content Supply Chain Solution | Adobe AI Marketing Workflows",
+  "template": "solutions",
+  "blocks": [
+    "hero-split",
+    "cards-icon-tile",
+    "cards-horizontal",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-media",
+    "columns-split-card",
+    "cards-report",
+    "carousel-cards",
+    "carousel-cards",
+    "accordion-faq",
+    "columns-promo"
+  ]
+}
