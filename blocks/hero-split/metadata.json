@@ -1,0 +1,47 @@
+{
+  "variantName": "hero-split",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Top-of-page marquee: eyebrow, title and body copy beside a full-bleed image",
+    "description": "Light grey left half with eyebrow, large title and body text; full-bleed image on the right half"
+  },
+  "contentPattern": {
+    "structure": "row 1 = media: an image, optionally followed by a paragraph holding a link to an .mp4 file (ambient video; the image is its poster/fallback); row 2 = eyebrow (H1), title (H2) and body paragraph(s). Rows may be in either order; the media row is optional (adds no-image)",
+    "blockContent": {
+      "baseBlock": "hero",
+      "source": "get_block_details /block-collection/hero",
+      "columns": 1,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "Image: foreground marquee image (media_16aa52d88a6211fc019ad3745fd8285fe5e82112a.png, alt 'Marketer using approved assets and generative AI to create an Instagram ad')"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "H1 eyebrow 'Content Supply Chain – Asset Management'; H2 'Maximize your content's value with agentic AI.'; paragraph body copy"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "hero-split"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": {
+    "description": "Use for the opening marquee of solution/product pages with text on one half and an image on the other.",
+    "pagesUsing": [
+      "/solutions/content-supply-chain/asset-management",
+      "/solutions/content-supply-chain"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-19"
+  },
+  "reuseGuidance": "Reuse for any split hero; use the base hero for text over a background image."
+}

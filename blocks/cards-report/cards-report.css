@@ -1,0 +1,112 @@
+/* cards-report: report cover image + title + outline CTA tiles (source: Milo two-up media blocks) */
+.cards-report {
+  max-width: 1000px; /* source: grid-width-10 caps the two-up grid */
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+/* mobile: source stack sits 40px / 72px inside the l-spacing section */
+.cards-report > ul {
+  list-style: none;
+  margin: 0;
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* source: .media padding 24px 0 + .media-row padding-bottom 32px (mobile) */
+.cards-report > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 56px;
+}
+
+.cards-report .cards-report-image {
+  line-height: 0;
+}
+
+.cards-report .cards-report-image picture {
+  display: block;
+}
+
+.cards-report .cards-report-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards-report .cards-report-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cards-report .cards-report-body > * {
+  margin: 0;
+}
+
+/* source: h2.heading-m 20px/25px (< 1200px), 24px/30px (>= 1200px), weight 800 */
+.cards-report .cards-report-body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 800;
+  line-height: var(--heading-line-height);
+  color: var(--text-color);
+}
+
+/* source: p.action-area is a flex row; CTA is a Milo con-button outline.
+   Cards share the row height and the CTA sits at the bottom so CTAs align across cards. */
+.cards-report .cards-report-body > .cards-report-cta {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: auto;
+}
+
+main .cards-report .cards-report-cta a:any-link {
+  box-sizing: border-box;
+  display: block;
+  max-width: 100%;
+  border: var(--button-border-width) solid var(--text-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  text-align: center;
+  text-decoration: none;
+}
+
+main .cards-report .cards-report-cta a:any-link:hover,
+main .cards-report .cards-report-cta a:any-link:active {
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* whole card is clickable via the primary CTA */
+.cards-report .cards-report-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* source: two-up grid from 600px; .media-row padding-bottom 24px */
+@media (width >= 600px) {
+  .cards-report > ul {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+
+  .cards-report > ul > li {
+    padding-bottom: 48px;
+  }
+}

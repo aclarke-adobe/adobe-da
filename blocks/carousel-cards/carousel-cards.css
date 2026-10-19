@@ -1,0 +1,288 @@
+/*
+ * carousel-cards: horizontally scrolling story cards with prev/next controls.
+ * Values from business.adobe.com CaaS carousel (#caas, consonant-Card editorial cards).
+ * Mobile: control pill centred below the track ("modern-carousel").
+ * Desktop: round chevron buttons straddling the left/right edges, hidden at either end.
+ */
+.carousel-cards {
+  --carousel-cards-card-width: 378px;
+  --carousel-cards-gap: 32px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  /* source CaaS: heading text-block spacing + 18px paragraph margin above, 8px + 18px below */
+  margin: 72px 0 16px;
+}
+
+.carousel-cards .carousel-cards-viewport {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-cards .carousel-cards-track {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(var(--carousel-cards-card-width), 100%);
+  gap: var(--carousel-cards-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.carousel-cards .carousel-cards-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* card */
+.carousel-cards .carousel-cards-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  scroll-snap-align: start;
+  overflow: hidden;
+  border: 1px solid #d3d3d3;
+  border-radius: 16px;
+  background-color: var(--color-white);
+  color: var(--text-color);
+}
+
+.carousel-cards .carousel-cards-image {
+  line-height: 0;
+}
+
+.carousel-cards .carousel-cards-image picture {
+  display: block;
+}
+
+.carousel-cards .carousel-cards-image img {
+  display: block;
+  width: 100%;
+  height: 213px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-cards .carousel-cards-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 16px;
+}
+
+.carousel-cards .carousel-cards-body > * {
+  margin: 0;
+}
+
+.carousel-cards .carousel-cards-body .carousel-cards-title {
+  margin: 0 0 7px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #323232;
+}
+
+.carousel-cards .carousel-cards-body .carousel-cards-description {
+  margin: 0 0 14px;
+  font-size: var(--body-font-size-xs);
+  line-height: 21px;
+  color: #747474;
+}
+
+/* CTA sits at the bottom right of each card so CTAs align across the row */
+.carousel-cards .carousel-cards-body .carousel-cards-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.carousel-cards .carousel-cards-cta a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 16px;
+  border: 2px solid #505050;
+  border-radius: 16px;
+  background-color: transparent;
+  color: #505050;
+  font-size: 13.176px;
+  font-weight: 700;
+  line-height: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.carousel-cards .carousel-cards-cta a:hover {
+  color: #505050;
+}
+
+/* whole card is clickable via the CTA link */
+.carousel-cards .carousel-cards-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-cards .carousel-cards-link:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* controls: mobile pill centred below the cards */
+.carousel-cards .carousel-cards-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 34px;
+  margin: 4px 0;
+  padding: 4px;
+  border-radius: 24px;
+  background-color: var(--color-gray-800);
+}
+
+/* hide controls when all cards already fit */
+.carousel-cards:not(.carousel-cards-scrollable) .carousel-cards-controls {
+  display: none;
+}
+
+.carousel-cards .carousel-cards-button {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 100%;
+  background-color: #e6e6e6;
+  color: var(--color-black);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* mobile arrow (source: 21x21 SVG arrow, tinted by currentcolor) */
+.carousel-cards .carousel-cards-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 21px;
+  height: 21px;
+  background-color: currentcolor;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path d="M19.2214 10.8918C19.3516 10.5773 19.3516 10.2226 19.2214 9.90808C19.1562 9.75098 19.0621 9.60895 18.9435 9.49041L12.9241 3.47092C12.4226 2.96819 11.6076 2.96819 11.1061 3.47092C10.604 3.97239 10.604 4.78743 11.1061 5.2889L14.9312 9.11399H2.4314C1.72109 9.11399 1.146 9.69036 1.146 10.4C1.146 11.1097 1.72109 11.6861 2.4314 11.6861H14.9312L11.1061 15.5112C10.604 16.0126 10.604 16.8277 11.1061 17.3291C11.3568 17.5805 11.6863 17.7062 12.0151 17.7062C12.3439 17.7062 12.6733 17.5805 12.9241 17.3291L18.9436 11.3097C19.0622 11.1911 19.1562 11.0491 19.2214 10.8918Z"/></svg>') center / contain no-repeat;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-cards .carousel-cards-prev::before {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.carousel-cards .carousel-cards-button:disabled {
+  color: #b1b1b1;
+  cursor: default;
+}
+
+.carousel-cards .carousel-cards-button:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-cards .carousel-cards-track {
+    scroll-behavior: auto;
+  }
+
+  .carousel-cards .carousel-cards-button,
+  .carousel-cards .carousel-cards-cta a:any-link {
+    transition: none;
+  }
+}
+
+/* desktop: chevron buttons straddle the block edges, vertically centred on the cards */
+@media (width >= 900px) {
+  .carousel-cards {
+    display: block;
+    margin: calc(var(--section-padding) + 18px) 0 26px;
+  }
+
+  .carousel-cards .carousel-cards-track {
+    padding: 16px 0;
+  }
+
+  .carousel-cards .carousel-cards-controls {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    pointer-events: none;
+  }
+
+  .carousel-cards .carousel-cards-button {
+    position: absolute;
+    top: 50%;
+    width: 34px;
+    height: 34px;
+    background-color: #efefef;
+    pointer-events: auto;
+  }
+
+  .carousel-cards .carousel-cards-prev {
+    left: -17px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .carousel-cards .carousel-cards-next {
+    right: -17px;
+    transform: translateY(-50%);
+  }
+
+  /* source: chevron built from two 11x3 bars */
+  .carousel-cards .carousel-cards-button::before,
+  .carousel-cards .carousel-cards-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 11px;
+    height: 3px;
+    background-color: currentcolor;
+    mask: none;
+  }
+
+  .carousel-cards .carousel-cards-button::before,
+  .carousel-cards .carousel-cards-prev::before {
+    transform: translate(-50%, -50%) translate(0, -3.5px) rotate(45deg);
+  }
+
+  .carousel-cards .carousel-cards-button::after {
+    transform: translate(-50%, -50%) translate(0, 3.5px) rotate(-45deg);
+  }
+
+  .carousel-cards .carousel-cards-button:hover {
+    box-shadow: 0 0 0 3px var(--color-white);
+  }
+
+  /* source hides the control at either end of the track */
+  .carousel-cards .carousel-cards-button:disabled {
+    display: none;
+  }
+
+  .carousel-cards .carousel-cards-button:focus-visible {
+    outline-color: var(--focus-ring-color);
+  }
+}

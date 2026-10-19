@@ -1,0 +1,55 @@
+/* quote-logo: source = Milo icon-block.full-width (centered wordmark, quote, attribution) */
+.quote-logo figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 27px;
+  text-align: center;
+}
+
+/* wordmark: capped at 80px tall, 234px wide (400px at >= 1200px) */
+.quote-logo .quote-logo-logo {
+  max-width: 234px;
+  max-height: 80px;
+  margin: 0 auto var(--spacing-m);
+}
+
+.quote-logo .quote-logo-logo picture {
+  display: block;
+  line-height: 0;
+}
+
+.quote-logo .quote-logo-logo img {
+  max-height: 80px;
+  width: auto;
+}
+
+.quote-logo .quote-logo-quotation {
+  margin: 0 0 var(--spacing-s);
+}
+
+.quote-logo .quote-logo-quotation p,
+.quote-logo .quote-logo-attribution p {
+  margin: 0 0 var(--spacing-s);
+}
+
+.quote-logo .quote-logo-quotation > :last-child,
+.quote-logo .quote-logo-attribution > :last-child {
+  margin-bottom: 0;
+}
+
+.quote-logo .quote-logo-attribution strong {
+  font-weight: 700;
+}
+
+@media (width >= 1200px) {
+  .quote-logo figure {
+    max-width: 800px;
+  }
+
+  .quote-logo .quote-logo-logo {
+    max-width: 400px;
+  }
+}

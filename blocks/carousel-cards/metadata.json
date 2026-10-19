@@ -1,0 +1,67 @@
+{
+  "variantName": "carousel-cards",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Customer-story card carousel: image + title + description + CTA cards, three per view on desktop, with previous/next controls",
+    "description": "Interactive carousel component with next/previous navigation."
+  },
+  "contentPattern": {
+    "structure": "Repeating rows, one per card: cell 1 = image (picture or a bare image URL); cell 2 = heading (H3), description paragraph and a paragraph holding the CTA link (\"Read article\" / \"Read now\")",
+    "blockContent": {
+      "baseBlock": "carousel",
+      "source": "get_block_details /block-collection/carousel",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "https://business.adobe.com/blog/the-latest/media_1b0d3301aa3c68a74bde06e6db0df6ed7d1352f5f.gif",
+            "H3 'IBM reimagines content creation and digital marketing with Adobe Firefly generative AI.'; paragraph 'How IBM has embraced generative AI to help increase its creative output without using costly creative resources.'; link 'Read article' to https://business.adobe.com/blog/the-latest/ibm-reimagines-content-creation-digital-marketing-adobe-firefly-generative-ai"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "https://business.adobe.com/blog/media_12a46cfde4918f3be84f7c7609bf9c0887f43f607.png",
+            "H3 'Qualcomm super-charges its campaigns with AI.'; paragraph 'Learn more about how Qualcomm optimizes its content supply chain with Adobe’s AI-powered personalization.'; link 'Read article' to https://business.adobe.com/blog/qualcomm-optimizes-its-content-supply-chain-with-adobes-ai-powered-personalization"
+          ]
+        },
+        {
+          "row": 3,
+          "cells": [
+            "https://business.adobe.com/customer-success-stories/media_14dc7a76294da80994631a42a6d7f97fad1be9c7d.png",
+            "H3 'Prudential Financial transforms content creation process.'; paragraph 'Prudential Creative House uses Workfront to achieve content velocity and promote financial literacy.'; link 'Read now' to https://business.adobe.com/customer-success-stories/prudential-case-study.html"
+          ]
+        },
+        {
+          "row": 4,
+          "cells": [
+            "https://business.adobe.com/blog/media_10508ac2a72ca4e6af92328cf468f9efbb1cb9140.png",
+            "H3 'Studio Rx scales campaign production with Adobe Firefly AI'; paragraph 'Learn how healthcare marketing agency Studio Rx used Adobe Firefly and Custom Models to launch an entirely new brand identity in just weeks.'; link 'Read article' to https://business.adobe.com/blog/ipg-healths-studio-rx-supercharges-campaign-production-adobe-firefly-custom-ai-models"
+          ]
+        },
+        {
+          "row": 5,
+          "cells": [
+            "https://business.adobe.com/customer-success-stories/media_1bc51784c0dff489c26b120d919e3695a804e7859.jpeg",
+            "H3 'Vanguard increases quality website engagement by 176%.'; paragraph 'Vanguard accelerates content velocity to meet personalization demands and connect with investors.'; link 'Read now' to https://business.adobe.com/customer-success-stories/vanguard-case-study.html"
+          ]
+        }
+      ],
+      "notes": "Slides come from a client-rendered CaaS collection (empty in cleaned.html) and were captured from the live page on 2026-10-19; author them as static slides. Images are remote (not in images/). Three cards per view on desktop."
+    }
+  },
+  "sectionMetadata": [
+    {
+      "style": "centered"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "carousel-cards"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "usage": "Use for customer success story or blog story carousels with more cards than fit in one row. Arrow keys, Home and End move through cards when focus is inside the carousel. Controls hide automatically when all cards fit.",
+  "reuseGuidance": "Reuse for any horizontally scrolling set of linked cards. Cards per view are set by the --carousel-cards-per-view custom property (1 / 2 / 3 by breakpoint)."
+}

@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-report",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Report or analyst-asset tiles: cover image above a title and a \"Read the report\" CTA; whole card clickable",
+    "description": "Repeating structure of two identical image + title + CTA tiles side by side."
+  },
+  "contentPattern": {
+    "structure": "Repeating rows, one per report: cell 1 = cover image; cell 2 = heading (H2) and a paragraph holding only the CTA link",
+    "blockContent": {
+      "baseBlock": "cards",
+      "source": "get_block_details /block-collection/cards",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "Image ./images/47a40c40877e9d396cca7e47c58d2739.png (Everest Group report cover)",
+            "H2 'Adobe is the leader in content supply chain solutions.'; link 'Read the report' to /resources/reports/everest-group-content-supply-chain-revolutionizing-the-content-development-lifecycle.html"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "Image ./images/ada8bb86784386c13bfff597033ce64a.png ('The growth unlock' report cover)",
+            "H2 'Turn content into a growth engine with AI.'; link 'Read the report' to /resources/sdk/growth-unlock-turning-content-into-a-growth-engine-with-ai.html"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "cards-report"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "usage": "Use for 2-up analyst report / ebook promos with a cover image, title and one CTA.",
+  "reuseGuidance": "Reuse for any image + title + single CTA tiles. The first link-only paragraph becomes the card link."
+}

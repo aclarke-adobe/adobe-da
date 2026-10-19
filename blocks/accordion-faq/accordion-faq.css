@@ -1,0 +1,151 @@
+/* accordion-faq — source: Milo accordion-container (max-width-10-desktop) */
+.accordion-faq {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-gray-500);
+}
+
+.accordion-faq .accordion-faq-item {
+  margin: 0;
+}
+
+/* question row (source: .descr-term button) */
+.accordion-faq .accordion-faq-item-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 32px 24px 16px;
+  border-top: 1px solid var(--color-gray-500);
+  background: none;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  line-height: calc(var(--heading-font-size-s) * var(--heading-line-height));
+  text-align: start;
+  list-style: none;
+  cursor: pointer;
+}
+
+.accordion-faq .accordion-faq-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* authored question heading (<h3>) inherits the question styling exactly */
+.accordion-faq .accordion-faq-item-label > .accordion-faq-item-title:is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.accordion-faq .accordion-faq-item-title > * {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* left accent bar, visible when expanded */
+.accordion-faq .accordion-faq-item-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.accordion-faq .accordion-faq-item-label:hover {
+  color: var(--color-black);
+}
+
+.accordion-faq .accordion-faq-item-label:hover,
+.accordion-faq .accordion-faq-item-label:focus,
+.accordion-faq .accordion-faq-item[open] > .accordion-faq-item-label {
+  background: rgb(0 0 0 / 2%);
+}
+
+.accordion-faq .accordion-faq-item[open] > .accordion-faq-item-label::before {
+  background-color: var(--link-color-dark);
+}
+
+/* plus / minus icon (source: Milo accordion-icon) */
+.accordion-faq .accordion-faq-item-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  pointer-events: none;
+}
+
+.accordion-faq .accordion-faq-item-icon::before,
+.accordion-faq .accordion-faq-item-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 2px;
+  height: 12px;
+  margin: auto;
+  border-radius: 2px;
+  background: #686868;
+  transition: 0.2s;
+}
+
+.accordion-faq .accordion-faq-item-icon::after {
+  width: 12px;
+  height: 2px;
+}
+
+.accordion-faq .accordion-faq-item-label:hover .accordion-faq-item-icon::before,
+.accordion-faq .accordion-faq-item-label:hover .accordion-faq-item-icon::after {
+  background: var(--color-black);
+}
+
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-icon::before,
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-icon::after {
+  transform: rotate(90deg);
+}
+
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-icon::after {
+  opacity: 0;
+}
+
+/* answer panel (source: .descr-details.open) */
+.accordion-faq .accordion-faq-item-body {
+  margin: 0;
+  padding: 16px;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.accordion-faq .accordion-faq-item-body p {
+  margin: 16px 0;
+}
+
+.accordion-faq .accordion-faq-item-body p:first-child {
+  margin-top: 0;
+}
+
+/* EDS wraps text-only answer cells in a <p>; source renders those as bare text */
+.accordion-faq .accordion-faq-item-body > p:only-child {
+  margin-bottom: 0;
+}
+
+.accordion-faq .accordion-faq-item-body ul,
+.accordion-faq .accordion-faq-item-body ol {
+  margin: 16px 0;
+  padding-left: 40px;
+}
+
+.accordion-faq .accordion-faq-item-body li {
+  margin: 0;
+}

@@ -1,0 +1,199 @@
+/* columns-media: values from business.adobe.com div.media (medium / medium-compact) */
+
+/* mobile (< 600px): stacked, image always first */
+.columns-media > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-media .columns-media-img-col {
+  order: 0;
+  line-height: 0;
+}
+
+.columns-media .columns-media-text-col {
+  order: 1;
+}
+
+.columns-media .columns-media-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* text column typography */
+.columns-media .columns-media-text-col h3 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--heading-font-size-xl);
+  line-height: var(--heading-line-height);
+}
+
+.columns-media .columns-media-text-col p {
+  margin: var(--spacing-xs) 0;
+}
+
+.columns-media .columns-media-text-col ul {
+  margin: var(--spacing-xs) 0 0;
+  padding: 0 0 0 20px;
+  list-style-type: disc;
+}
+
+.columns-media .columns-media-text-col li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns-media .columns-media-text-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-media .columns-media-text-col > :last-child {
+  margin-bottom: 0;
+}
+
+/* standalone "Learn more" link: source con-button outline */
+.columns-media .columns-media-text-col p.columns-media-cta {
+  margin: var(--spacing-s) 0 0;
+}
+
+main .columns-media .columns-media-cta > a:any-link {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: 100%;
+  border: var(--button-border-width) solid var(--text-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  text-decoration: none;
+}
+
+main .columns-media .columns-media-cta > a:any-link:hover,
+main .columns-media .columns-media-cta > a:any-link:active {
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* ---------- ambient video (authored .mp4 link in the media cell) ----------
+ * The picture keeps defining the box; the video is overlaid and fades in once playing.
+ * Control: Milo `.video-container .pause-play-wrapper` (46px round, #242424 disc, 2% inset). */
+.columns-media .columns-media-img-col.columns-media-has-video {
+  position: relative;
+}
+
+.columns-media .columns-media-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.columns-media .columns-media-video.is-visible {
+  opacity: 1;
+}
+
+.columns-media .columns-media-video-toggle {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 3px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-white);
+  line-height: 0;
+  cursor: pointer;
+}
+
+.columns-media .columns-media-video-toggle-icon {
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #242424;
+}
+
+.columns-media .columns-media-video-toggle-icon svg {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.columns-media .columns-media-video-toggle:hover .columns-media-video-toggle-icon {
+  background: var(--color-black);
+}
+
+.columns-media .columns-media-video-toggle:focus-visible {
+  outline: 2px solid #378ef0;
+  background: var(--color-white);
+}
+
+.columns-media .columns-media-video-toggle.is-playing .video-toggle-play,
+.columns-media .columns-media-video-toggle:not(.is-playing) .video-toggle-pause {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .columns-media .columns-media-video {
+    transition: none;
+  }
+}
+
+/* tablet+: control sits on the outer edge of the image (left when the image is first) */
+@media (width >= 600px) {
+  .columns-media .columns-media-img-first .columns-media-video-toggle {
+    right: auto;
+    left: 2%;
+  }
+}
+
+/* tablet+ (>= 600px): side by side, image 25 : text 33 (source 500px : 660px) */
+@media (width >= 600px) {
+  .columns-media > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .columns-media .columns-media-img-col,
+  .columns-media .columns-media-text-col {
+    order: unset;
+    min-width: 0;
+  }
+
+  .columns-media .columns-media-img-col {
+    flex: 25 1 0;
+  }
+
+  .columns-media .columns-media-text-col {
+    flex: 33 1 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns-media > div {
+    gap: 40px;
+  }
+}

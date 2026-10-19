@@ -1,0 +1,48 @@
+{
+  "variantName": "cards-icon-tile",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Icon + heading + short text tiles presented as a row of equal feature highlights",
+    "description": "Repeating structure of three identical icon + heading + text tiles laid out side by side."
+  },
+  "contentPattern": {
+    "structure": "Repeating rows, one per tile: cell 1 = small icon image; cell 2 = heading (H3) and a short paragraph",
+    "blockContent": {
+      "baseBlock": "cards",
+      "source": "get_block_details /block-collection/cards",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "./images/6eebbee8dca1845dca6b0136f4733a1b.png (small-icon-1-unified-context.svg)",
+            "H3 'Unified context.'; paragraph 'A shared foundation of structured business metadata for alignment.'"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "./images/634fd1c81a8d0cac4976313d7136f358.png (small-icon-2-human-ai-collaboration.svg)",
+            "H3 'Human & AI collaboration.'; paragraph 'Seamless workflows optimized for speed and efficiency.'"
+          ]
+        },
+        {
+          "row": 3,
+          "cells": [
+            "./images/77b887ad8da9aaf59b9d6ae93ad806fa.png (small-icon-3-intelligent-orchestration.svg)",
+            "H3 'Brand intelligence.'; paragraph 'A centralized understanding of brand standards and signals to guide creation.'"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "cards-icon-tile"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "usage": "Use for 3-up (or 2-up) value-proposition highlights where each tile is an icon, a short heading and one sentence. Tiles are not links.",
+  "reuseGuidance": "Reuse for any non-linked icon feature list. Use cards-horizontal instead when each tile is a link, and cards-resource when tiles carry a type label."
+}

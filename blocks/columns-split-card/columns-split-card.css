@@ -1,0 +1,137 @@
+/*
+ * columns-split-card: lavender rounded card with a text panel and an image panel
+ * (source: Milo brick.split.rounded-corners.media-right).
+ * Below 1200px the source renders the text panel only; the media panel is hidden.
+ */
+.columns-split-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-split-card .columns-split-card-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 300px;
+  padding: 32px;
+  border-radius: 16px;
+  background-color: var(--color-lavender);
+  color: var(--text-color);
+}
+
+.columns-split-card .columns-split-card-text {
+  min-width: 0;
+}
+
+.columns-split-card .columns-split-card-text > :first-child {
+  margin-top: 0;
+}
+
+.columns-split-card .columns-split-card-text > :last-child {
+  margin-bottom: 0;
+}
+
+.columns-split-card .columns-split-card-text h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 800;
+  line-height: var(--heading-line-height);
+}
+
+.columns-split-card .columns-split-card-text p {
+  margin: 16px 0 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  line-height: var(--body-line-height);
+}
+
+.columns-split-card .columns-split-card-text p.button-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 24px 0 0;
+}
+
+/* Milo con-button button-l fill */
+main .columns-split-card a.button:is(.primary, .secondary, .accent):any-link {
+  min-height: 40px;
+  padding: 7px 18px 8px;
+  border-radius: 20px;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: start;
+}
+
+.columns-split-card .columns-split-card-media {
+  display: none;
+}
+
+@media (width >= 600px) {
+  .columns-split-card .columns-split-card-card {
+    min-height: 384px;
+    padding: 40px;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns-split-card .columns-split-card-card {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .columns-split-card .columns-split-card-single {
+    padding: 40px;
+  }
+
+  .columns-split-card .columns-split-card-single .columns-split-card-text {
+    grid-column: 1 / -1;
+  }
+
+  .columns-split-card .columns-split-card-text p {
+    font-size: var(--body-font-size-m);
+  }
+
+  .columns-split-card .columns-split-card-text-first .columns-split-card-text {
+    grid-column: 1 / span 5;
+    grid-row: 1;
+    margin: 40px 0 40px 40px;
+  }
+
+  .columns-split-card .columns-split-card-media-first .columns-split-card-text {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+    margin: 40px 40px 40px 0;
+  }
+
+  .columns-split-card .columns-split-card-media {
+    position: relative;
+    display: block;
+    grid-row: 1;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .columns-split-card .columns-split-card-text-first .columns-split-card-media {
+    grid-column: 7 / span 6;
+    border-radius: 0 16px 16px 0;
+  }
+
+  .columns-split-card .columns-split-card-media-first .columns-split-card-media {
+    grid-column: 1 / span 6;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .columns-split-card .columns-split-card-media img,
+  .columns-split-card .columns-split-card-media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+  }
+}

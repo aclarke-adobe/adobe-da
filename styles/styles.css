@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -10,64 +12,21 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+/* design tokens live in brand.css */
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
-}
-
-/* fallback fonts */
+/* fallback font: source uses size-adjusted Trebuchet MS while adobe-clean loads */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: adobe-clean-fallback;
+  font-weight: 400;
+  size-adjust: 93%;
+  src: local('Trebuchet MS'), local('TrebuchetMS');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
+  font-family: adobe-clean-fallback;
+  font-weight: 700;
+  size-adjust: 95%;
+  src: local('Trebuchet MS Bold'), local('TrebuchetMSBold');
 }
 
 body {
@@ -77,7 +36,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: var(--body-line-height);
 }
 
 body.appear {
@@ -85,7 +44,11 @@ body.appear {
 }
 
 header {
+  position: sticky;
+  top: var(--nav-sticky-top, 0);
+  z-index: 10;
   height: var(--nav-height);
+  background-color: var(--color-gray-100);
 }
 
 header .header,
@@ -98,17 +61,18 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* default content typography (source: Milo heading-* / body-m) */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
   scroll-margin: 40px;
 }
 
@@ -125,8 +89,16 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+main .default-content-wrapper > :first-child {
+  margin-top: 0;
+}
+
+main .default-content-wrapper > :last-child {
+  margin-bottom: 0;
 }
 
 code,
@@ -142,10 +114,6 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
 input,
 textarea,
 select,
@@ -153,129 +121,168 @@ button {
   font: inherit;
 }
 
-/* links */
+/* links (source: underlined, #274dea, hover #1d3ecf, no transition) */
 a:any-link {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
   overflow-wrap: break-word;
 }
 
 a:hover {
   color: var(--link-hover-color);
+}
+
+a:focus-visible {
+  outline: 1px auto var(--focus-ring-color);
+  outline-offset: 1px;
+}
+
+:is(h1, h2, h3, h4, h5, h6) a:any-link,
+:is(h1, h2, h3, h4, h5, h6) a:hover {
+  color: currentcolor;
+}
+
+/* buttons: EDS reset */
+main .button-container {
+  display: inline;
+}
+
+main a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
   text-decoration: underline;
+  white-space: normal;
 }
 
-/* buttons */
+/* buttons: source-derived variants (Milo con-button) */
 p.button-wrapper {
-  margin: 12px 0;
+  margin: var(--spacing-xs) 0;
 }
 
-a.button:any-link,
+main a.button.primary:any-link,
+main a.button.secondary:any-link,
+main a.button.accent:any-link,
 button.button {
   box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: var(--button-border-width) solid var(--text-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-style: normal;
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-a.button[aria-disabled="true"],
-button.button:disabled {
-  cursor: not-allowed;
-  pointer-events: none;
+main a.button:focus-visible,
+button.button:focus-visible {
+  outline: 1px auto var(--focus-ring-color);
+  outline-offset: 1px;
 }
 
-a.button.primary,
+/* primary = con-button fill */
+main a.button.primary:any-link,
 button.button.primary {
   border-color: var(--text-color);
   background-color: var(--text-color);
-  color: var(--background-color);
+  color: var(--color-white);
 }
 
-a.button.primary:hover,
-a.button.primary:focus-visible,
+main a.button.primary:any-link:hover,
+main a.button.primary:any-link:active,
 button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+button.button.primary:active {
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-a.button.secondary,
+/* secondary = con-button outline */
+main a.button.secondary:any-link,
 button.button.secondary {
   border-color: var(--text-color);
   background-color: transparent;
   color: var(--text-color);
 }
 
-a.button.secondary:hover,
-a.button.secondary:focus-visible,
+main a.button.secondary:any-link:hover,
+main a.button.secondary:any-link:active,
 button.button.secondary:hover,
-button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+button.button.secondary:active {
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
-a.button.accent,
+/* accent = con-button blue */
+main a.button.accent:any-link,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-white);
 }
 
-a.button.accent:hover,
-a.button.accent:focus-visible,
+main a.button.accent:any-link:hover,
+main a.button.accent:any-link:active,
 button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+button.button.accent:active {
+  border-color: var(--color-accent-hover);
+  background-color: var(--color-accent-hover);
+  color: var(--color-white);
 }
 
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+/* dark context: source renders CTAs as white fill, hover darkens text */
+main .section.dark a.button.primary:any-link,
+main .section.dark a.button.secondary:any-link {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--text-color);
+}
+
+main .section.dark a.button.primary:any-link:hover,
+main .section.dark a.button.primary:any-link:active,
+main .section.dark a.button.secondary:any-link:hover,
+main .section.dark a.button.secondary:any-link:active {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* disabled */
+main a.button[aria-disabled="true"],
+button.button:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+main a.button.secondary[aria-disabled="true"],
+button.button.secondary:disabled {
+  border-color: var(--color-gray-500);
+  background-color: transparent;
+  color: var(--color-gray-500);
+}
+
+main a.button.primary[aria-disabled="true"],
+main a.button.accent[aria-disabled="true"],
+button.button.primary:disabled,
+button.button.accent:disabled {
+  border-color: var(--color-gray-500);
+  background-color: var(--color-gray-500);
+  color: var(--color-gray-300);
 }
 
 main img {
@@ -295,31 +302,180 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections (source: 83.4% grid up to 1200px, 56px block spacing) */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
+  padding: var(--section-padding) 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+  box-sizing: border-box;
+  width: var(--content-width);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
+main > .section.hero-split-container,
+main > .section.hero-container {
+  padding: 0;
 }
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+/* section metadata: centered */
+main > .section.centered > .default-content-wrapper {
+  max-width: var(--text-max-width);
+  text-align: center;
+}
+
+/* section metadata: backgrounds */
+main > .section.light-grey,
+main > .section.light,
+main > .section.highlight {
+  background-color: var(--color-gray-100);
+}
+
+main > .section.light-lavender {
+  background-color: var(--color-lavender);
+}
+
+main > .section.light-pink {
+  background-color: var(--color-pink);
+}
+
+main > .section.dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+main > .section.dark :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-white);
+}
+
+main > .section.dark a:any-link:not(.button) {
+  color: var(--link-color-dark);
+}
+
+main > .section.dark a:not(.button):hover {
+  color: var(--link-hover-color-dark);
+}
+
+/* consecutive sections sharing a background read as one band */
+main > .section.light-grey + .section.light-grey,
+main > .section.light-lavender + .section.light-lavender,
+main > .section.light-pink + .section.light-pink,
+main > .section.dark + .section.dark {
+  padding-top: var(--spacing-m);
+}
+
+/*
+ * section spacing rhythm (source: Milo spacing classes, mobile values below 1200px)
+ * s 24 | m 32 | l 24/40 | xl 48/56 | xxl 56/80 | xxxl 80/104
+ */
+
+/* same-background heading + product band: heading has no bottom spacing, band keeps xl */
+main > .section.light-lavender:has(+ .section.light-lavender.cards-product-icon-container),
+main > .section.light-pink:has(+ .section.light-pink.cards-product-icon-container) {
+  padding-bottom: 0;
+}
+
+main > .section.light-lavender + .section.light-lavender.cards-product-icon-container,
+main > .section.light-pink + .section.light-pink.cards-product-icon-container {
+  padding-top: var(--section-padding);
+}
+
+/* feature jump-link grid: xl-spacing-bottom (56) / xxl desktop (80) */
+main > .section.cards-horizontal-container {
+  padding-bottom: var(--spacing-xl);
+}
+
+/* split card: xxxl-spacing; the section above drops its bottom spacing */
+main > .section:has(+ .section.columns-split-card-container) {
+  padding-bottom: 0;
+}
+
+main > .section.columns-split-card-container {
+  padding: var(--spacing-xxl) 0;
+}
+
+/* report promos: l-spacing */
+main > .section.cards-report-container {
+  padding: var(--spacing-s) 0;
+}
+
+/* CaaS collections carry their own bottom spacing (see carousel-cards / cards-resource) */
+main > .section.carousel-cards-container,
+main > .section.cards-resource-container {
+  padding-bottom: 0;
+}
+
+/* quote followed by resources: xxl-spacing-top */
+main > .section.quote-logo-container + .section.cards-resource-container {
+  padding-top: var(--spacing-xl);
+}
+
+/* FAQ: heading section (s-spacing-bottom) directly above the accordion (m-spacing) */
+main > .section:has(+ .section.accordion-faq-container) {
+  padding-bottom: var(--spacing-s);
+}
+
+main > .section.accordion-faq-container {
+  padding: var(--spacing-m) 0;
+}
+
+/* solutions template (metadata Template=solutions -> body.solutions) */
+body.solutions main > .section.hero-split-container + .section.centered {
+  padding: var(--spacing-xl) 0 var(--spacing-l);
+}
+
+body.solutions main > .section.light-grey.centered {
+  padding-top: var(--spacing-xl);
+}
+
+body.solutions main > .section.light-grey.centered > .default-content-wrapper {
+  max-width: 1000px;
+}
+
+body.solutions main > .section:has(+ .section.accordion-faq-container) {
+  padding-bottom: var(--spacing-m);
+}
+
+body.solutions main > .section.accordion-faq-container {
+  padding: 0 0 var(--spacing-xl);
+}
+
+body.solutions main .default-content-wrapper h2,
+body.solutions main .columns-media h3,
+body.solutions main .columns-promo h2 {
+  font-weight: 800;
+}
+
+@media (width >= 1200px) {
+  main > .section.cards-horizontal-container {
+    padding-bottom: var(--spacing-xxl);
+  }
+
+  main > .section.columns-split-card-container {
+    padding: 104px 0;
+  }
+
+  main > .section.cards-report-container {
+    padding: var(--spacing-l) 0;
+  }
+
+  main > .section.quote-logo-container + .section.cards-resource-container {
+    padding-top: var(--spacing-xxl);
+  }
+
+  body.solutions main > .section.hero-split-container + .section.centered,
+  body.solutions main > .section.light-grey.centered {
+    padding-top: var(--spacing-xxl);
+  }
+
+  body.solutions main > .section.accordion-faq-container {
+    padding-bottom: var(--spacing-xxl);
+  }
 }

@@ -1,0 +1,171 @@
+/*
+ * cards-product-icon
+ * Source shapes (Milo):
+ * - product links (no heading): icon-block vertical center small in a
+ *   two-up / three-up section, grid-width-6 / grid-width-8 on desktop
+ * - 4+ product links: action-scroller row of 150px items
+ * - items with a heading: card-horizontal feature tiles
+ * Breakpoints follow the source grid: 600px (tablet) and 1200px (desktop).
+ */
+
+.cards-product-icon > ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.cards-product-icon > ul > li {
+  min-width: 0;
+}
+
+.cards-product-icon .cards-product-icon-body > p {
+  margin: 0;
+}
+
+/* product links: #2c2c2c, underlined, no hover change */
+main .cards-product-icon a:any-link,
+main .cards-product-icon a.button:any-link {
+  color: var(--text-color);
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+main .cards-product-icon a:hover,
+main .cards-product-icon a.button:hover {
+  color: var(--text-color);
+}
+
+/* product item: icon inline above the link (icon-block, 16px block padding) */
+.cards-product-icon > ul:not(:has(h3)) > li {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.cards-product-icon > ul:not(:has(h3)) .cards-product-icon-image img {
+  vertical-align: baseline;
+}
+
+/* feature tiles (card-horizontal): image left, heading + text right */
+.cards-product-icon > ul:has(h3) > li {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  max-width: 600px;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  background-color: var(--color-white);
+}
+
+.cards-product-icon > ul:has(h3) > li:hover {
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-image {
+  position: relative;
+  flex: 0 0 91px;
+  height: 130px;
+  line-height: 0;
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 4px 0 0 4px;
+  background-color: rgb(0 0 0 / 35%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cards-product-icon > ul:has(h3) > li:hover .cards-product-icon-image::after {
+  opacity: 1;
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-image picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px 0 0 4px;
+}
+
+/* source clamps tile text to 5 lines (Milo card-horizontal) */
+.cards-product-icon > ul:has(h3) .cards-product-icon-body {
+  display: -webkit-box;
+  flex: 1 1 auto;
+  padding-right: 24px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-body h3 {
+  margin: 0;
+  font-size: var(--heading-font-size-xs);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+}
+
+.cards-product-icon > ul:has(h3) .cards-product-icon-body p {
+  font-size: var(--body-font-size-xs);
+  line-height: 21px;
+}
+
+/* 4+ product links (action-scroller): scrolling row of 150px items */
+.cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(4)) {
+  grid-template-columns: none;
+  grid-auto-columns: minmax(150px, 1fr);
+  grid-auto-flow: column;
+  max-width: none;
+  padding: 3px 50px;
+  overflow: auto;
+}
+
+.cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(4)) > li {
+  justify-self: center;
+  width: 150px;
+  padding: 0;
+}
+
+.cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(4)) .cards-product-icon-image,
+.cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(4)) .cards-product-icon-body {
+  margin: 18px 0;
+}
+
+.cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(4)) .cards-product-icon-image img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* tablet: 2-up */
+@media (width >= 600px) {
+  .cards-product-icon > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* desktop: grid-width-6 (2-up) and grid-width-8 (3-up) */
+@media (width >= 1200px) {
+  .cards-product-icon > ul:has(h3) .cards-product-icon-image {
+    flex-basis: 115px;
+  }
+
+  .cards-product-icon > ul:not(:has(h3)) {
+    max-width: 50%;
+  }
+
+  .cards-product-icon > ul:not(:has(h3)):has(> li:nth-child(3)):not(:has(> li:nth-child(4))) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 66.667%;
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-split-card",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Single rounded card split side by side into a text panel (heading, copy, CTA) and an image panel",
+    "description": "Side-by-side layout of a text panel and an image in one card."
+  },
+  "contentPattern": {
+    "structure": "One row with two cells: text cell (H2, paragraph, CTA link) and image cell. Either order works; on mobile the image always stacks under the text",
+    "blockContent": {
+      "baseBlock": "columns",
+      "source": "get_block_details /block-collection/columns",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "H2 'Modernize your content supply chain with Adobe GenStudio.'; paragraph 'Turn content into a growth engine for your business with Adobe GenStudio, an integrated, AI-powered content supply chain solution. ...'; link 'Learn about Adobe GenStudio' to /products/genstudio.html (filled black button)",
+            "Image ./images/4775064052fd0b56aa3512f27fe30443.png (media_1e9270752f49967a316da7e6d7d975495c4384473.png)"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [
+    {
+      "anchor": "power-your-content-supply-chain-with-an-integrated-solution"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "columns-split-card"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "usage": "Use for a product or solution promo card placed at the end of a page section, with a heading, a paragraph, one CTA and a supporting image.",
+  "reuseGuidance": "Reuse for any two-panel promo card. Use columns-promo for the closing consultation banner and columns-media for unboxed media/text rows."
+}

@@ -1,0 +1,189 @@
+/* source CaaS: heading text-block xxl spacing + 18px paragraph margin above;
+   32px grid padding + 8px wrapper margin + 18px paragraph margin below */
+.cards-resource {
+  margin: 74px 0 58px;
+}
+
+@media (width >= 1200px) {
+  .cards-resource {
+    margin-top: 98px;
+  }
+}
+
+/* source: Milo CaaS consonant cards — fixed 378px tracks, 32px gutter, centered */
+.cards-resource > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 378px));
+  justify-content: center;
+  gap: 32px;
+}
+
+/* source insets the icon-card grid 32px each side (Wrapper-inner margin) */
+.cards-resource > ul:not(:has(> .cards-resource-editorial)) {
+  padding: 0 32px;
+}
+
+@media (width >= 900px) {
+  .cards-resource > ul:not(:has(> .cards-resource-editorial)) {
+    padding: 0;
+  }
+}
+
+/* icon card (source: .icon-card) */
+.cards-resource > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-gray-100);
+  border-radius: 4px;
+  background-color: var(--color-gray-100);
+  color: var(--text-color);
+  text-align: left;
+}
+
+.cards-resource .cards-resource-image {
+  padding: 16px 0 0 16px;
+  line-height: 0;
+}
+
+.cards-resource .cards-resource-image picture {
+  display: block;
+}
+
+.cards-resource .cards-resource-image img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.cards-resource .cards-resource-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 16px 20px;
+}
+
+.cards-resource .cards-resource-body p {
+  margin: 0;
+}
+
+.cards-resource .cards-resource-body p.cards-resource-type {
+  overflow: hidden;
+  margin: 0 0 4px;
+  font-size: var(--body-font-size-xs);
+  line-height: 16px;
+}
+
+.cards-resource .cards-resource-title {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 6px 0 10px;
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 22px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cards-resource .cards-resource-link,
+.cards-resource .cards-resource-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* whole card is clickable via the stretched title link */
+.cards-resource .cards-resource-linked .cards-resource-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.cards-resource .cards-resource-linked .cards-resource-link:focus-visible {
+  outline: none;
+}
+
+.cards-resource .cards-resource-linked .cards-resource-link:focus-visible::after {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: -2px;
+}
+
+/* editorial card (source: .editorial-card) */
+.cards-resource > ul > li.cards-resource-editorial {
+  border-color: #d3d3d3;
+  border-radius: 16px;
+  background-color: var(--background-color);
+}
+
+.cards-resource > ul > li.cards-resource-editorial .cards-resource-image {
+  padding: 0;
+}
+
+.cards-resource > ul > li.cards-resource-editorial .cards-resource-image img {
+  display: block;
+  width: 100%;
+  height: 213px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.cards-resource > ul > li.cards-resource-editorial .cards-resource-body {
+  padding: 16px;
+}
+
+.cards-resource > ul > li.cards-resource-editorial .cards-resource-title {
+  margin: 0 0 7px;
+  color: #323232;
+  font-size: 24px;
+  line-height: 30px;
+  -webkit-line-clamp: 6;
+}
+
+.cards-resource .cards-resource-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0 0 14px;
+  color: #747474;
+  font-size: var(--body-font-size-xs);
+  line-height: 21px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.cards-resource .cards-resource-body p.cards-resource-description {
+  margin: 0 0 14px;
+}
+
+/* CTA sits at the card bottom, right aligned, above the stretched title link */
+.cards-resource .cards-resource-body p.cards-resource-cta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin: auto 0 0;
+  padding-top: 24px;
+}
+
+main .cards-resource .cards-resource-cta a:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 32px;
+  margin: 0;
+  padding: 0 16px;
+  border: 2px solid #505050;
+  border-radius: 16px;
+  background-color: transparent;
+  color: #505050;
+  font-size: 13.176px;
+  font-weight: 700;
+  line-height: 15px;
+  text-decoration: none;
+}

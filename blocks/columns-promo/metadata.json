@@ -1,0 +1,46 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Closing CTA band: heading and button on one side, collage image on the other",
+    "description": "Black band: white H2 and outline button on the left, collage image on the right"
+  },
+  "contentPattern": {
+    "structure": "one row, two cells: text cell (H2 + paragraph with CTA link) and image-only cell",
+    "blockContent": {
+      "baseBlock": "columns",
+      "source": "get_all_blocks_catalog Columns",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "H2 'Let's talk about what Adobe can do for your business.' + paragraph with link 'Get started' -> https://business.adobe.com/request-consultation.html?mktfrm=content-supply-chain",
+            "Image (media_15b9e1057236e0e35ec8d16979acde1d8d140b828.png)"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [
+    {
+      "style": "dark"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "columns-promo"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": {
+    "description": "Use for the closing contact CTA; place inside a section styled dark.",
+    "pagesUsing": [
+      "/solutions/content-supply-chain/asset-management",
+      "/solutions/content-supply-chain"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-19"
+  },
+  "reuseGuidance": "Reuse for any heading + CTA + image promo band."
+}

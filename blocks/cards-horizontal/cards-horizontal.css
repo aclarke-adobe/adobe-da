@@ -1,0 +1,115 @@
+/* cards-horizontal: icon + linked title tiles (source: Milo card-horizontal in a two-up section) */
+.cards-horizontal > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
+  align-items: start;
+  gap: var(--spacing-m);
+}
+
+.cards-horizontal > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-s);
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  background-color: var(--color-white);
+}
+
+.cards-horizontal > ul > li:hover {
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cards-horizontal > ul > li:has(.cards-horizontal-link:focus-visible) {
+  border-color: var(--color-accent);
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* icon: the coloured square is part of the 115x130 svg artwork */
+.cards-horizontal .cards-horizontal-icon {
+  position: relative;
+  flex: 0 0 115px;
+  height: 130px;
+  line-height: 0;
+}
+
+.cards-horizontal .cards-horizontal-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 35%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cards-horizontal > ul > li:hover .cards-horizontal-icon::after {
+  opacity: 1;
+}
+
+.cards-horizontal .cards-horizontal-icon picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-horizontal .cards-horizontal-icon img {
+  display: block;
+  width: 115px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px 0 0 4px;
+}
+
+.cards-horizontal .cards-horizontal-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-right: var(--spacing-s);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.cards-horizontal .cards-horizontal-body > * {
+  margin: 0;
+}
+
+.cards-horizontal .cards-horizontal-body h3 {
+  font-size: var(--body-font-size-m);
+  font-weight: 800;
+  line-height: var(--heading-line-height);
+  color: var(--text-color);
+}
+
+main .cards-horizontal .cards-horizontal-body a:any-link,
+main .cards-horizontal .cards-horizontal-body a:hover {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* whole tile is clickable via the title link */
+.cards-horizontal .cards-horizontal-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+main .cards-horizontal .cards-horizontal-link:focus,
+main .cards-horizontal .cards-horizontal-link:focus-visible {
+  outline: none;
+}
+
+@media (width >= 1200px) {
+  .cards-horizontal > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

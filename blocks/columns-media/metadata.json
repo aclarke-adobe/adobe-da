@@ -1,0 +1,43 @@
+{
+  "variantName": "columns-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Feature row pairing a product UI image with a heading, paragraph and bold-lead bullet list",
+    "description": "Two columns on white: product UI image and H3/paragraph/bold-lead bullet list, sides alternate"
+  },
+  "contentPattern": {
+    "structure": "one row, two cells: a media cell (image, optionally followed by a paragraph holding a link to an .mp4 file for an ambient video) and a text cell (H3, paragraph, bulleted list with <strong> lead-ins). Cell order sets which side the media is on; on mobile the media always stacks first",
+    "blockContent": {
+      "baseBlock": "columns",
+      "source": "get_all_blocks_catalog Columns",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "Image (picture)",
+            "H3 + paragraph + bulleted list (each item: <strong> lead-in + text)"
+          ],
+          "note": "Cell order follows the source: image first in sections 3, 5 and 7; text first in sections 4 and 6."
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "columns-media"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": {
+    "description": "Use for alternating image/text feature sections; alternate sides by swapping cell order.",
+    "pagesUsing": [
+      "/solutions/content-supply-chain/asset-management",
+      "/solutions/content-supply-chain"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-19"
+  },
+  "reuseGuidance": "Reuse for any image + rich text two-column feature; do not use for promo bands (columns-promo)."
+}

@@ -1,0 +1,324 @@
+/*
+ * hero-split -- source: business.adobe.com Milo `hero-marquee`.
+ * Default look: light grey panel (sub-pages). `dark` variant: black panel, white text (landing).
+ * Breakpoints follow the source: mobile < 600px, tablet 600-1199px (stacked), desktop >= 1200px (split).
+ */
+
+/* full-bleed: release the section's 83.4% / 1200px content box */
+main > .section > .hero-split-wrapper {
+  width: 100%;
+  max-width: none;
+}
+
+/* ---------- mobile (base) ---------- */
+.hero-split {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-height: 448px;
+  padding: 48px 0 0;
+  background-color: var(--color-gray-150);
+  color: var(--text-color);
+}
+
+.hero-split .hero-split-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: var(--content-width);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0;
+}
+
+.hero-split .hero-split-content > * {
+  margin: 0;
+}
+
+/* eyebrow (Milo detail-l) */
+.hero-split .hero-split-content h1 {
+  font-size: var(--detail-font-size-l);
+  font-weight: 700;
+  line-height: var(--detail-line-height);
+  text-transform: uppercase;
+  color: inherit;
+}
+
+/* title (Milo heading-xxl: 36px/45px, 44px/55px >= 1200px) */
+.hero-split .hero-split-content h2 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: var(--heading-line-height);
+  color: inherit;
+}
+
+/* body (Milo body-m) */
+.hero-split .hero-split-content p {
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+/* CTA (Milo con-button button-xl) */
+main .hero-split .button-wrapper a.button:any-link {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  border-width: var(--button-border-width);
+  border-radius: 25px;
+  padding: 10px 24px 8px;
+  font-size: 19px;
+  font-weight: var(--button-font-weight);
+  line-height: 24px;
+}
+
+/* relative: containing block for the video overlay (desktop switches it to absolute) */
+.hero-split .hero-split-media {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.hero-split .hero-split-media picture {
+  display: block;
+}
+
+.hero-split .hero-split-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 720 / 518;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* ---------- ambient video (authored .mp4 link in the media cell) ----------
+ * The picture keeps defining the box; the video is overlaid and fades in once playing.
+ * Control: Milo `.video-container .pause-play-wrapper` (46px round, #242424 disc, 2% inset). */
+.hero-split .hero-split-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.hero-split .hero-split-video.is-visible {
+  opacity: 1;
+}
+
+.hero-split .hero-split-video-toggle {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 3px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-white);
+  line-height: 0;
+  cursor: pointer;
+}
+
+.hero-split .hero-split-video-toggle-icon {
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #242424;
+}
+
+.hero-split .hero-split-video-toggle-icon svg {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.hero-split .hero-split-video-toggle:hover .hero-split-video-toggle-icon {
+  background: var(--color-black);
+}
+
+.hero-split .hero-split-video-toggle:focus-visible {
+  outline: 2px solid #378ef0;
+  background: var(--color-white);
+}
+
+.hero-split .hero-split-video-toggle.is-playing .video-toggle-play,
+.hero-split .hero-split-video-toggle:not(.is-playing) .video-toggle-pause {
+  display: none;
+}
+
+/* dark marquee: white ring around the disc, black focus backplate */
+.hero-split.dark .hero-split-video-toggle,
+.section.dark .hero-split .hero-split-video-toggle {
+  padding: 1px;
+}
+
+.hero-split.dark .hero-split-video-toggle .hero-split-video-toggle-icon,
+.section.dark .hero-split .hero-split-video-toggle .hero-split-video-toggle-icon {
+  border: 2px solid var(--color-white);
+}
+
+.hero-split.dark .hero-split-video-toggle:focus-visible,
+.section.dark .hero-split .hero-split-video-toggle:focus-visible {
+  background: var(--color-black);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-split .hero-split-video {
+    transition: none;
+  }
+}
+
+/* ---------- dark variant ---------- */
+.hero-split.dark,
+.section.dark .hero-split {
+  min-height: 588px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.hero-split.dark .hero-split-content,
+.section.dark .hero-split .hero-split-content {
+  gap: 12px;
+}
+
+.hero-split.dark .hero-split-content :is(h1, h2),
+.section.dark .hero-split .hero-split-content :is(h1, h2) {
+  font-weight: 800;
+}
+
+.hero-split.dark .hero-split-content p,
+.section.dark .hero-split .hero-split-content p {
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.hero-split.dark .hero-split-content .button-wrapper,
+.section.dark .hero-split .hero-split-content .button-wrapper {
+  margin-top: 12px;
+}
+
+/* fill button on black: white fill, dark text */
+main .hero-split.dark .button-wrapper a.button:any-link,
+main .section.dark .hero-split .button-wrapper a.button:any-link {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--text-color);
+}
+
+main .hero-split.dark .button-wrapper a.button:any-link:hover,
+main .hero-split.dark .button-wrapper a.button:any-link:active,
+main .section.dark .hero-split .button-wrapper a.button:any-link:hover,
+main .section.dark .hero-split .button-wrapper a.button:any-link:active {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ---------- tablet ---------- */
+@media (width >= 600px) {
+  /* light look: image on top */
+  .hero-split {
+    padding: 0 0 48px;
+  }
+
+  .hero-split .hero-split-media {
+    order: -1;
+  }
+
+  .hero-split .hero-split-media img {
+    aspect-ratio: 1536 / 518;
+  }
+
+  main .hero-split .button-wrapper a.button:any-link {
+    display: inline-block;
+    width: auto;
+  }
+
+  /* dark look: image stays below the copy */
+  .hero-split.dark,
+  .section.dark .hero-split {
+    padding: 48px 0 0;
+  }
+
+  .hero-split.dark .hero-split-media,
+  .section.dark .hero-split .hero-split-media {
+    order: 0;
+  }
+
+  .hero-split.dark .hero-split-content,
+  .section.dark .hero-split .hero-split-content {
+    gap: 16px;
+  }
+
+  .hero-split.dark .hero-split-content .button-wrapper,
+  .section.dark .hero-split .hero-split-content .button-wrapper {
+    margin-top: 0;
+  }
+}
+
+/* ---------- desktop: copy left, full-bleed image right half ---------- */
+@media (width >= 1200px) {
+  .hero-split,
+  .hero-split.dark,
+  .section.dark .hero-split {
+    flex-direction: row;
+    padding: 56px 0;
+  }
+
+  /* copy column = 50% of the 1200px grid minus 100px gutter */
+  .hero-split .hero-split-content > * {
+    width: calc(50% - 100px);
+  }
+
+  .hero-split.no-image .hero-split-content > * {
+    width: auto;
+  }
+
+  .hero-split .hero-split-media {
+    position: absolute;
+    inset: 0 0 0 50%;
+    width: auto;
+  }
+
+  .hero-split .hero-split-media picture,
+  .hero-split .hero-split-media img {
+    height: 100%;
+  }
+
+  .hero-split .hero-split-media img {
+    aspect-ratio: auto;
+    object-position: 50% 0;
+  }
+
+  .hero-split .hero-split-video {
+    object-position: 50% 0;
+  }
+
+  .hero-split.dark .hero-split-content p,
+  .section.dark .hero-split .hero-split-content p {
+    font-size: var(--body-font-size-m);
+    line-height: var(--body-line-height);
+  }
+}

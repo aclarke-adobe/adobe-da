@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-product-icon",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "purpose": "Centered grid of small product icons above text links",
+    "description": "Centered small product icons over underlined text links, 2-up on lavender"
+  },
+  "contentPattern": {
+    "structure": "cell 1 = icon image; cell 2 = product link",
+    "blockContent": {
+      "baseBlock": "cards",
+      "source": "get_all_blocks_catalog Cards",
+      "columns": 2,
+      "rows": [
+        {
+          "row": "1..n (one per product)",
+          "cells": [
+            "Icon image (adobe-icon.svg / workfronticon.svg)",
+            "Link: 'Adobe Experience Manager Assets' -> /products/experience-manager/assets.html; 'Adobe Workfront' -> /products/workfront.html"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [
+    {
+      "style": "light-lavender"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "cards-product-icon"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": "Use in \"powered by these products\" bands; place inside a section styled light-lavender.",
+  "reuseGuidance": "Reuse for any icon + link product/logo list; use cards-resource for richer tiles."
+}

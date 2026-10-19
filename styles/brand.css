@@ -1,0 +1,103 @@
+/*
+ * Brand tokens extracted from business.adobe.com (Milo) computed styles.
+ * Source: migration-work/brand.json + forced-state extraction.
+ */
+
+:root {
+  /* colors */
+  --background-color: #fff;
+  --text-color: #2c2c2c;
+  --link-color: #274dea;
+  --link-hover-color: #1d3ecf;
+  --link-color-dark: #3b63fb;
+  --link-hover-color-dark: #274dea;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-accent: #3b63fb;
+  --color-accent-hover: #274dea;
+  --color-gray-100: #f8f8f8;
+  --color-gray-150: #f5f5f5;
+  --color-gray-200: #e8e8e8;
+  --color-gray-300: #d4d4d4;
+  --color-gray-500: #909090;
+  --color-gray-800: #242424;
+  --color-lavender: #e4e1ff;
+  --color-pink: #faecfc;
+  --focus-ring-color: #101010;
+  --light-color: var(--color-gray-100);
+  --dark-color: var(--color-black);
+
+  /* fonts */
+  --body-font-family: adobe-clean, adobe-clean-fallback, 'Trebuchet MS', sans-serif;
+  --heading-font-family: adobe-clean, adobe-clean-fallback, 'Trebuchet MS', sans-serif;
+  --heading-font-weight: 700;
+  --body-line-height: 1.5;
+  --heading-line-height: 1.25;
+
+  /* body sizes (constant across breakpoints on source) */
+  --body-font-size-xl: 22px;
+  --body-font-size-l: 20px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
+
+  /* heading sizes (mobile / tablet, < 1200px) */
+  --heading-font-size-xxl: 36px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+
+  /* detail (eyebrow) */
+  --detail-font-size-l: 16px;
+  --detail-line-height: 1.25;
+
+  /* spacing scale */
+  --spacing-xxs: 8px;
+  --spacing-xs: 16px;
+  --spacing-s: 24px;
+  --spacing-m: 32px;
+  --spacing-l: 40px;
+  --spacing-xl: 56px;
+  --spacing-xxl: 80px;
+
+  /* source sections use 48px below 1200px, 56px from 1200px */
+  --section-padding: 48px;
+
+  /* layout */
+  --content-max-width: 1200px;
+  --content-width: 83.4%;
+  --text-max-width: 800px;
+
+  /* buttons (Milo con-button, default size) */
+  --button-font-size: 15px;
+  --button-line-height: 16px;
+  --button-font-weight: 700;
+  --button-border-width: 2px;
+  --button-border-radius: 16px;
+  --button-padding: 5px 14px;
+
+  /* nav height (compact): 63px main row + 1px border + 40px local-nav bar */
+  --nav-height: 104px;
+
+  /* compact: the main row scrolls away, the local-nav bar stays pinned */
+  --nav-sticky-top: -64px;
+}
+
+@media (width >= 1200px) {
+  :root {
+    /* heading sizes (desktop) */
+    --heading-font-size-xxl: 44px;
+    --heading-font-size-xl: 36px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
+    --section-padding: var(--spacing-xl);
+
+    /* nav height: 63px main row + 1px border + 33px breadcrumb row + 1px border */
+    --nav-height: 98px;
+    --nav-sticky-top: 0;
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "variantName": "cards-horizontal",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Horizontal icon + linked-title tiles that act as in-page navigation to sections further down",
+    "description": "Repeating structure of six identical icon + linked-title tiles."
+  },
+  "contentPattern": {
+    "structure": "Repeating rows, one per tile: cell 1 = icon image (white glyph, coloured square is styling); cell 2 = heading (H3) containing a link. Use same-page anchors such as #connect-strategy; the whole tile is clickable",
+    "blockContent": {
+      "baseBlock": "cards",
+      "source": "get_block_details /block-collection/cards",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "./images/8a03a18731918be0d8783c00f7c4e114.png",
+            "H3 containing link 'A metadata foundation for planning and execution' to #connect-strategy"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "./images/707e114f3997c02393220bc02d54e7c9.png",
+            "H3 containing link 'AI-powered creative foundation' to #enhance-creative"
+          ]
+        },
+        {
+          "row": 3,
+          "cells": [
+            "./images/2d7d140ad032e2433a841732e37ac9bc.png",
+            "H3 containing link 'Asset variations at scale' to #create-quality"
+          ]
+        },
+        {
+          "row": 4,
+          "cells": [
+            "./images/00cf605b8ad34f3c368d57e81c90b79f.png",
+            "H3 containing link 'Content creation for all teams' to #unlock-brand"
+          ]
+        },
+        {
+          "row": 5,
+          "cells": [
+            "./images/784fe5f33968e74ed437d568a3ba36a6.png",
+            "H3 containing link 'Content discovery and reuse' to #quickly-find-content"
+          ]
+        },
+        {
+          "row": 6,
+          "cells": [
+            "./images/5b2f5584e582c1d206d4f064d8125ae5.png",
+            "H3 containing link 'Performance insights' to #get-insights"
+          ]
+        }
+      ],
+      "notes": "Icons are white glyphs; the coloured square behind each icon (purple to pink across the set) is block styling. Source hrefs are /solutions/content-supply-chain.html#<anchor>; author them as same-page anchors."
+    }
+  },
+  "sectionMetadata": [
+    {
+      "style": "light-grey"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "cards-horizontal"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain.html",
+  "usage": "Use as a jump-link grid to sections on the same page. Author each link as a bare #anchor that matches a section id (section metadata \"anchor\" or a heading id). Links to the current page path plus #hash are rewritten to bare #hash at runtime.",
+  "reuseGuidance": "Reuse for any icon + single linked title tile list, in-page or cross-page. Off-page links are left as authored."
+}

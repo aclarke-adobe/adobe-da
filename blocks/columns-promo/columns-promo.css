@@ -1,0 +1,75 @@
+/* columns-promo: source Milo `aside small dark` footer promo
+ * Section background/padding come from the `dark` section style in styles.css.
+ */
+
+/* mobile (< 600px): stacked, text above image */
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.columns-promo > div > div {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+.columns-promo .columns-promo-text-col h2 {
+  margin: 0 0 var(--spacing-xs);
+}
+
+.columns-promo .columns-promo-text-col p {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  line-height: 24px;
+}
+
+.columns-promo .columns-promo-text-col > :last-child {
+  margin-bottom: 0;
+}
+
+.columns-promo .columns-promo-img-col {
+  line-height: 0;
+}
+
+.columns-promo .columns-promo-img-col picture {
+  display: block;
+}
+
+.columns-promo .columns-promo-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* tablet (600px+): side by side, equal columns */
+@media (width >= 600px) {
+  .columns-promo > div {
+    flex-direction: row;
+  }
+
+  .columns-promo > div > div {
+    flex: 1 1 0;
+    width: auto;
+  }
+}
+
+/* desktop (1200px+): text takes half, image the rest */
+@media (width >= 1200px) {
+  .columns-promo > div {
+    gap: 6.95%;
+  }
+
+  .columns-promo > div > .columns-promo-text-col {
+    flex: 0 0 50%;
+  }
+}
+
+@media (width >= 1440px) {
+  .columns-promo > div {
+    gap: 100px;
+  }
+}

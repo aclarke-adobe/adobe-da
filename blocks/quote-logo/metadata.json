@@ -1,0 +1,45 @@
+{
+  "variantName": "quote-logo",
+  "baseBlock": "quote",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Customer testimonial with company wordmark, quotation, attribution and story link",
+    "description": "Centered customer wordmark, quote, bold attribution and story link"
+  },
+  "contentPattern": {
+    "structure": "row 1 = company logo image (optional); row 2 = quotation paragraph(s); row 3 = attribution as bold paragraphs (name/title, company) plus an optional story link",
+    "blockContent": {
+      "baseBlock": "quote",
+      "source": "Standard EDS quote block (quotation row, attribution row); no library entry. Logo row added for this variant.",
+      "columns": 1,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "Logo image: Deloitte wordmark (media_1b82fb90a1a4d26d26f40d98daff20a2bf5fc6e02.png, alt 'Deloitte')"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "Quotation paragraph: '“We knew that by reusing more content, ... on-brand experiences.”'"
+          ]
+        },
+        {
+          "row": 3,
+          "cells": [
+            "Attribution: <strong>Helen Wallace, Creative Director</strong>; <strong>Deloitte</strong>; link 'Read Deloitte's customer story' -> /customer-success-stories/deloitte-digital-case-study.html"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "quote-logo"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": "Use for a single customer quotation with logo on solution pages.",
+  "reuseGuidance": "Reuse for any logo testimonial; omit the logo row for a plain quote."
+}

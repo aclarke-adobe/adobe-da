@@ -1,0 +1,42 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "purpose": "FAQ list of collapsible question/answer items with dividers and plus icons",
+    "description": "Plain FAQ list with dividers and plus icons, max width 10 cols"
+  },
+  "contentPattern": {
+    "structure": "cell 1 = question: a heading (H3 recommended, kept inside the summary) or plain text; cell 2 = answer content (paragraphs/lists)",
+    "blockContent": {
+      "baseBlock": "accordion",
+      "source": "get_all_blocks_catalog Accordion",
+      "columns": 2,
+      "rows": [
+        {
+          "row": "1..3",
+          "cells": [
+            "Question text (from .descr-term button)",
+            "Answer content (from .descr-details: paragraphs/lists)"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [],
+  "options": [],
+  "memberVariantIds": [
+    "accordion-faq"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": {
+    "description": "Use for FAQ sections below a \"Questions? We have answers.\" heading.",
+    "pagesUsing": [
+      "/solutions/content-supply-chain/asset-management",
+      "/solutions/content-supply-chain"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-19"
+  },
+  "reuseGuidance": "Reuse for any collapsible Q&A list."
+}

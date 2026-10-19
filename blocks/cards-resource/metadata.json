@@ -1,0 +1,45 @@
+{
+  "variantName": "cards-resource",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": {
+    "purpose": "Resource tiles with type icon, type label and linked title; whole card clickable",
+    "description": "3-up resource tiles: type icon, type label, title, whole card linked"
+  },
+  "contentPattern": {
+    "structure": "cell 1 = type icon image; cell 2 = type label paragraph and a paragraph holding the linked title",
+    "blockContent": {
+      "baseBlock": "cards",
+      "source": "get_all_blocks_catalog Cards",
+      "columns": 2,
+      "rows": [
+        {
+          "row": 1,
+          "cells": [
+            "Icon image https://www.adobe.com/content/dam/cc/images/shared/icons/customer-blog.svg",
+            "Paragraph 'Customer Blog'; linked title 'How Pfizer is transforming its content supply chain with Adobe' -> https://business.adobe.com/blog/the-latest/how-pfizer-is-transforming-content-supply-chain"
+          ]
+        },
+        {
+          "row": 2,
+          "cells": [
+            "Icon image https://www.adobe.com/content/dam/cc/images/shared/icons/webinar.svg",
+            "Paragraph 'Webinar'; linked title 'Constructing the Ideal Content Supply Chain.' -> https://business.adobe.com/resources/webinars/constructing-the-ideal-content-supply-chain.html"
+          ]
+        }
+      ]
+    }
+  },
+  "sectionMetadata": [
+    {
+      "style": "centered"
+    }
+  ],
+  "options": [],
+  "memberVariantIds": [
+    "cards-resource"
+  ],
+  "sourceUrl": "https://business.adobe.com/solutions/content-supply-chain/asset-management.html",
+  "usage": "Use for \"learn more\" resource lists (blogs, webinars, reports) authored as static cards.",
+  "reuseGuidance": "Reuse for any linked resource tile list; the first link in the body becomes the card link."
+}
