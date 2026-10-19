@@ -27,7 +27,7 @@ export function videoUrl(a) {
   const href = a.getAttribute('href');
   if (href && isMp4Url(href)) return href;
   const text = a.textContent.trim();
-  if (/^https?:\/\//i.test(text) && isMp4Url(text)) return text;
+  if (/^(https?:\/\/|\/)/i.test(text) && isMp4Url(text)) return text;
   return null;
 }
 
