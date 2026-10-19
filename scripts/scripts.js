@@ -167,6 +167,10 @@ function decorateSectionMetadata(main) {
     sectionMeta.remove();
     if (wrapper && !wrapper.children.length && wrapper !== section) wrapper.remove();
   });
+  // the delivery pipeline may already have turned section metadata into data-* attributes
+  main.querySelectorAll(':scope > div.section[data-anchor]:not([id])').forEach((section) => {
+    section.id = toClassName(section.dataset.anchor);
+  });
 }
 
 /**
