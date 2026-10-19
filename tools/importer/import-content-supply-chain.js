@@ -10,6 +10,7 @@ import accordionFaqParser from './parsers/accordion-faq.js';
 import columnsPromoParser from './parsers/columns-promo.js';
 import adobeCleanupTransformer from './transformers/adobe-cleanup.js';
 import adobeSectionsTransformer from './transformers/adobe-sections.js';
+import localizeImages from './localize-images.js';
 
 const PAGE_TEMPLATE = {
   "name": "content-supply-chain",
@@ -381,6 +382,7 @@ export default {
     WebImporter.rules.createMetadata(main, document);
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
+    localizeImages(main);
 
     const rawPath = new URL(params.originalURL).pathname
       .replace(/\/$/, '')

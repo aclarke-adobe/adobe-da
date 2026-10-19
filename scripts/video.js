@@ -9,18 +9,34 @@
 const PAUSE_ICON = '<svg class="video-toggle-pause" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><path d="M18.85 11.54h-5.34v17.08h5.34zM26.33 11.54h-5.34v17.08h5.34z" fill="currentColor"/></svg>';
 const PLAY_ICON = '<svg class="video-toggle-play" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><path d="M16.56 11v18l12-9z" fill="currentColor"/></svg>';
 
+const isMp4Url = (value) => {
+  try {
+    return new URL(value, window.location.href).pathname.toLowerCase().endsWith('.mp4');
+  } catch (e) {
+    return false;
+  }
+};
+
+/**
+ * Video url for a link: its href, or its text when publishing rewrote the href
+ * into a site-internal path (e.g. /media-1bc7…-mp4) but kept the authored url as text.
+ * @param {HTMLAnchorElement} a
+ * @returns {string|null}
+ */
+export function videoUrl(a) {
+  const href = a.getAttribute('href');
+  if (href && isMp4Url(href)) return href;
+  const text = a.textContent.trim();
+  if (/^https?:\/\//i.test(text) && isMp4Url(text)) return text;
+  return null;
+}
+
 /**
  * True when the link points to an .mp4 file (query string / hash ignored).
  * @param {HTMLAnchorElement} a
  */
 export function isVideoLink(a) {
-  const href = a.getAttribute('href');
-  if (!href) return false;
-  try {
-    return new URL(href, window.location.href).pathname.toLowerCase().endsWith('.mp4');
-  } catch (e) {
-    return false;
-  }
+  return !!videoUrl(a);
 }
 
 /**
@@ -203,7 +219,7 @@ export function attachVideo(container, {
 export function takeVideoSrc(cell) {
   const link = findVideoLink(cell);
   if (!link) return null;
-  const { href } = link;
+  const { href } = new URL(videoUrl(link), window.location.href);
   removeVideoLink(link);
   // EDS wraps a picture that shares its cell with other content in a <p>; unwrap it again so
   // the media cell renders exactly like an image-only cell

@@ -84,7 +84,9 @@ export default function parse(element, { document }) {
     if (!u || !u.hash) return;
     const path = stripPath(u.pathname);
     if ((here && path === here) || (sharedPath !== null && path === sharedPath)) {
-      a.setAttribute('href', u.hash);
+      // keep the page path: bare "#x" links don't survive DA/publish; the block turns
+      // same-page links back into in-page anchors at render time
+      a.setAttribute('href', `${path}${u.hash}`);
     }
   });
 
